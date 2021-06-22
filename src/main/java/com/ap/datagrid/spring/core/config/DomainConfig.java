@@ -80,14 +80,9 @@ public class DomainConfig {
 	            .ssl()
 	            .sniHostName("example-infinispan")
 	            .trustStorePath("/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt")
-	            .marshaller(org.infinispan.commons.marshall.UTF8StringMarshaller.class)
 	            ;
-	    GlobalConfigurationBuilder builderg = new GlobalConfigurationBuilder();
+	   
 	    
-	    builderg.serialization()
-	       .marshaller(new JavaSerializationMarshaller())
-	       .allowList()
-	       .addRegexps("cl.wom.middleware.authorizecredit.model.");
 	    
 	    
 	    System.out.println("======> Connecting to HOST->'"+host +"' and PORT->"+port );
