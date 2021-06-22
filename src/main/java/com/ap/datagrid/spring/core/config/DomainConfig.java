@@ -57,31 +57,10 @@ public class DomainConfig {
     public RemoteCacheManager cacheManager(){
     	System.out.println("Inside DomainConfig.cacheManager()---AP");
 
-    	String host ="test-ocp4-poc-cache.apps.lab-ocp.wom.cl";
-    	int port = 443;
+    	String host ="example-infinispan";
+    	int port = 11222;
     	
-    	//org.infinispan.configuration.cache.ConfigurationBuilder bc = new  org.infinispan.configuration.cache.ConfigurationBuilder();
-    	//GlobalConfigurationBuilder gc = new GlobalConfigurationBuilder();
-    	//gc.site().localSite("default3");
-    	
-	   // ConfigurationBuilder builder = new ConfigurationBuilder();
-	   // builder = new ConfigurationBuilder();
-/*
-	    //builder.addServer().host(host).port(port);
-	    builder.addServer().host(host)
-	    .port(port)
-	    .security()
-	   // .ssl()
-	   // .enable()
-	    //.trustStorePath("./src/main/resources/example-infinispan.poc-cache")
-	   // .trustStoreFileName("./src/main/resources/client.truststore.jks")
-	    //.trustStorePassword("wom2018".toCharArray())
-	    .authentication()
-	    .saslMechanism("DIGEST-MD5").username("operator").password("supersecretoperatorpassword");
-	    builder.clientIntelligence(ClientIntelligence.BASIC);
-	    builder.maxRetries(1).socketTimeout(20000).connectionTimeout(50000);
-	    builder.tcpNoDelay(true);
-	    builder.marshaller(new JavaSerializationMarshaller());*/
+
 	    
 	    ConfigurationBuilder builder = new ConfigurationBuilder();
 	    builder.addServer()
@@ -99,8 +78,7 @@ public class DomainConfig {
 	            // Encryption
 	            .ssl()
 	            .sniHostName("example-infinispan")
-	     	    .trustStoreFileName("./src/main/resources/client.truststore.jks")
-	    	    .trustStorePassword("wom2018".toCharArray())
+	            .trustStorePath("/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt")
 	    	    .protocolVersion("2.9")
 	            ;
 		    builder.clientIntelligence(ClientIntelligence.BASIC);
