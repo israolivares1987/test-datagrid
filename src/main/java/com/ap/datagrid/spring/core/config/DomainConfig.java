@@ -87,10 +87,8 @@ public class DomainConfig {
 	    builder.maxRetries(1).socketTimeout(20000).connectionTimeout(50000);
 	    builder.tcpNoDelay(true);
 	    builder.addJavaSerialWhiteList("com.ap.datagrid.spring.rest.model.*");
-	    builder.marshaller(new org.infinispan.marshaller.protostuff.ProtostuffMarshaller());
-
+	    builder.marshaller(new org.infinispan.commons.marshall.ProtoStreamMarshaller());
 	       
-	    
 	    System.out.println("======> Connecting to HOST->'"+host +"' and PORT->"+port );
 	    return new RemoteCacheManager(builder.build(),true);
 	   //return new SpringRemoteCacheManager(new RemoteCacheManager(builder.build(),true));
