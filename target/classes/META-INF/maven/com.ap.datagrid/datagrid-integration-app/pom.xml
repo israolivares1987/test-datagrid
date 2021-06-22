@@ -137,19 +137,9 @@
           <dependency>
     <groupId>org.infinispan.protostream</groupId>
     <artifactId>protostream-processor</artifactId>
-    <!--
-      This dependency should be declared in the "provided" scope or made "optional"
-      because it is a compile-only dependency and is not required at runtime.
-      Transitive propagation of this dependency should be also be avoided.
-    -->
-    <scope>provided</scope>
+    <version>${version.org.infinispan}</version>
   </dependency>
   
-  <dependency>
-  <groupId>org.infinispan</groupId>
-  <artifactId>infinispan-marshaller-protostuff</artifactId>
-<version>${version.org.infinispan}</version>
-</dependency>
 
 	</dependencies>
 

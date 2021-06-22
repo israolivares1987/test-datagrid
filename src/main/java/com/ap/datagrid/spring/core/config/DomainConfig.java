@@ -87,7 +87,7 @@ public class DomainConfig {
 	    builder.maxRetries(1).socketTimeout(20000).connectionTimeout(50000);
 	    builder.tcpNoDelay(true);
 	    builder.addJavaSerialWhiteList("com.ap.datagrid.spring.rest.model.*");
-	    builder.marshaller(new ProtoStreamMarshaller());
+	    builder.marshaller(new JavaSerializationMarshaller());
 
 	    
 	  
