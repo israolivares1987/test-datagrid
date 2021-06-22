@@ -25,9 +25,9 @@ public class CachedClientGetter extends ClientGetter {
 
     @Cacheable
     public List<Client> getBestClients() {
-        return clientGetter.getBestClients();
-    /*	byte[] data = Utils.serializeDTO(clientGetter.getBestClients());
-    	return Utils.deserializeDTO(data);*/
+        //return clientGetter.getBestClients();
+    	byte[] data = Utils.serializeDTO(clientGetter.getBestClients());
+    	return (List<Client>) Utils.deserializeDTO(data);
     }
     
 	@CachePut(key="#id")
