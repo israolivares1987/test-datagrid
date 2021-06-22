@@ -82,7 +82,10 @@ public class DomainConfig {
 	            .trustStorePath("/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt")
 	            ;
 	   
-	    
+	    builder.maxRetries(1).socketTimeout(20000).connectionTimeout(50000);
+	    builder.tcpNoDelay(true);
+	    builder.addJavaSerialWhiteList("com.ap.datagrid.spring.rest.model.*");
+	    builder.marshaller(new JavaSerializationMarshaller());
 	    
 	    
 	    System.out.println("======> Connecting to HOST->'"+host +"' and PORT->"+port );
