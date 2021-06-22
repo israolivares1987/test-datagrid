@@ -39,12 +39,12 @@ public class Utils {
 	    return dto;
 	}
 
-	public static byte[] serializeDTO(List<Client> list) {
+	public static byte[] serializeDTO(Client dtoObject) {
 	    byte[] result = null;
 	    try {
 	        ByteArrayOutputStream data = new ByteArrayOutputStream();
 	        ObjectOutputStream out = new ObjectOutputStream(data);
-	        out.writeObject(list);
+	        out.writeObject(dtoObject);
 	        out.close();
 	        result = data.toByteArray();
 	        data.close();

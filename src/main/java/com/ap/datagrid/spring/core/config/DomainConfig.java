@@ -10,6 +10,7 @@ import org.infinispan.client.hotrod.configuration.SaslQop;
 import org.infinispan.client.hotrod.marshall.ProtoStreamMarshaller;
 import org.infinispan.commons.marshall.JavaSerializationMarshaller;
 import org.infinispan.commons.marshall.Marshaller;
+import org.infinispan.configuration.cache.CacheMode;
 import org.infinispan.configuration.global.GlobalConfigurationBuilder;
 //import org.infinispan.configuration.global.GlobalConfigurationBuilder;
 //import org.infinispan.spring.provider.SpringEmbeddedCacheManagerFactoryBean;
@@ -87,10 +88,14 @@ public class DomainConfig {
 	    builder.tcpNoDelay(true);
 	    builder.addJavaSerialWhiteList("com.ap.datagrid.spring.rest.model.*");
 	    builder.marshaller(new JavaSerializationMarshaller());
+
 	    
 	    GlobalConfigurationBuilder builder2 = new GlobalConfigurationBuilder();
 	    builder2.serialization()
 	           .marshaller(new org.infinispan.marshaller.protostuff.ProtostuffMarshaller());
+	    
+	  
+	    
 	    
 	    System.out.println("======> Connecting to HOST->'"+host +"' and PORT->"+port );
 	    return new RemoteCacheManager(builder.build(),true);
