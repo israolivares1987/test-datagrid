@@ -1,0 +1,11 @@
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/core/client/ClientGetter.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/core/client/ClientCache.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/core/client/Client.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/core/config/DomainConfig.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/rest/CacheRest.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/rest/ClientsRest.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/DatagridIntegrationApplication.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/core/client/CachedClientGetter.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/rest/RestConfiguration.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/core/client/Utils.java
+/home/iolivas/Documentos/Fuentes/GITHUB/test-datagrid/src/main/java/com/ap/datagrid/spring/rest/model/Clients.java

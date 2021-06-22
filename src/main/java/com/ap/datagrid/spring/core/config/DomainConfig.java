@@ -10,6 +10,7 @@ import org.infinispan.client.hotrod.configuration.SaslQop;
 import org.infinispan.client.hotrod.marshall.ProtoStreamMarshaller;
 import org.infinispan.commons.marshall.JavaSerializationMarshaller;
 import org.infinispan.commons.marshall.Marshaller;
+import org.infinispan.configuration.global.GlobalConfigurationBuilder;
 //import org.infinispan.configuration.global.GlobalConfigurationBuilder;
 //import org.infinispan.spring.provider.SpringEmbeddedCacheManagerFactoryBean;
 import org.infinispan.spring.provider.SpringRemoteCacheManager;
@@ -62,7 +63,7 @@ public class DomainConfig {
     	
 
 	    
-	    ConfigurationBuilder builder = new ConfigurationBuilder();
+    	ConfigurationBuilder builder = new ConfigurationBuilder();
 	    builder.addServer()
 	    	.host(host).port(port)
 	    	// Use BASIC client intelligence.
@@ -79,23 +80,14 @@ public class DomainConfig {
 	            .ssl()
 	            .sniHostName("example-infinispan")
 	            .trustStorePath("/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt")
-	    	    .protocolVersion("2.9")
+	            .marshaller(org.infinispan.commons.marshall.UTF8StringMarshaller.class)
 	            ;
-		    builder.clientIntelligence(ClientIntelligence.BASIC);
-		    builder.maxRetries(1).socketTimeout(20000).connectionTimeout(50000);
-		    builder.tcpNoDelay(true);
-		    builder.addJavaSerialWhiteList("com.ap.datagrid.spring.rest.model.");
-		    builder.marshaller(new JavaSerializationMarshaller());
-		  // builder.security().ssl().protocol("SSL")
-		    ;
-    
+	    GlobalConfigurationBuilder builderg = new GlobalConfigurationBuilder();
 	    
-	    
-	    
-	    //Code to connect with Datagrid using TLS/SSL
-	   // builder.addServer().host(host).port(port).security().ssl().enable().trustStoreFileName(System.getProperty("javax.net.ssl.trustStore")).trustStorePassword(System.getProperty("javax.net.ssl.trustStorePassword").toCharArray());
-	    
-	    
+	    builderg.serialization()
+	       .marshaller(new JavaSerializationMarshaller())
+	       .allowList()
+	       .addRegexps("cl.wom.middleware.authorizecredit.model.");
 	    
 	    
 	    System.out.println("======> Connecting to HOST->'"+host +"' and PORT->"+port );
