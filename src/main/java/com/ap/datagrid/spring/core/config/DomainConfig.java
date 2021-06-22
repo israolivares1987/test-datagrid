@@ -26,6 +26,7 @@ import com.ap.datagrid.spring.core.client.CachedClientGetter;
 import com.ap.datagrid.spring.core.client.ClientCache;
 import com.ap.datagrid.spring.core.client.ClientGetter;
 
+
 /**
  * Spring configuration for domain objects.
  * 
@@ -87,6 +88,9 @@ public class DomainConfig {
 	    builder.addJavaSerialWhiteList("com.ap.datagrid.spring.rest.model.*");
 	    builder.marshaller(new JavaSerializationMarshaller());
 	    
+	    GlobalConfigurationBuilder builder2 = new GlobalConfigurationBuilder();
+	    builder2.serialization()
+	           .marshaller(new org.infinispan.marshaller.protostuff.ProtostuffMarshaller());
 	    
 	    System.out.println("======> Connecting to HOST->'"+host +"' and PORT->"+port );
 	    return new RemoteCacheManager(builder.build(),true);
